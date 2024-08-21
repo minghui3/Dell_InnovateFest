@@ -324,3 +324,45 @@
 
 
 /* difficulty.html */
+
+.difficulty-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 190px;
+    font-size: 20px;
+  }
+  
+  .bar1 {
+    width: 45px; /* Adjust width to your preference */
+    height: 17px; /* Adjust height to your preference */
+    background-color: #49FA65; /* Yellow color for the bar */
+    border-radius: 10px; /* Rounded edges */
+    margin-right: 8px; /* Space between the bar and the text */
+  }
+  
+  .bar2 {
+    margin-left: 30px;
+    width: 40px; /* Adjust width to your preference */
+    height: 17px; /* Adjust height to your preference */
+    background-color: #E6FF82; /* Yellow color for the bar */
+    border-radius: 10px; /* Rounded edges */
+    margin-right: 8px; /* Space between the bar and the text */
+  }
+  
+  .bar3 {
+    width: 42px; /* Adjust width to your preference */
+    height: 18px; /* Adjust height to your preference */
+    background-color: #FF4A4A; /* Yellow color for the bar */
+    border-radius: 10px; /* Rounded edges */
+    margin-left: -2px;
+    margin-right: 8px; /* Space between the bar and the text */
+  }
+  #minds-img{
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 260px;
+  }
+
+  #workplace-img{
+    margin-top: 30px;
+  }
