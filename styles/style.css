@@ -1,3 +1,5 @@
+/* index.html */
+
 .index-page{
     background-color: #DCF2FD;
     
@@ -142,18 +144,107 @@
     margin-top:15px;
 }
 
-.buttons {
+.buttons a{
     border-radius: 29px;
     background-color: #1E386B;
-    padding: 10px 20px;
-    font-family: 'Open Sans', sans-serif;
+    padding: 10px 90px;
     font-weight: bold;
-    color: #FFFFFF;
     text-align: center;
     cursor: pointer;
     font-size: 30px;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-left: 50px;
     margin-right: 50px;
     border-radius: 25px;
+    display: inline-block; 
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* homepage.html */
+
+.homepage {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #FFFFFF; /* White background */
+    height: 650px; /* Adjust height as needed */
+    position: relative;
+    margin: 0;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.homepage::before {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Position it at the bottom */
+    left: 0;
+    width: 100%;
+    height: 550px; /* Adjust height to cover the bottom part */
+    background-color: #DCF2FD; /* Blue color */
+    border-top-right-radius: 200px; /* Curved top right */
+    z-index: -1; /* Ensure it sits behind the content */
+}
+
+
+.homepage .container {
+    text-align: center;
+}
+.homepage .heading {
+    margin-top: 50px;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    text-align: left;
+    margin-top: 250px;
+}
+.homepage .image {
+    width: 200px;
+    height: 10px;
+}
+.homepage .image img {
+    width: 320px;
+    height: 250px;
+    margin-top: 10px;
+    transform: scaleX(-1);
+    border-radius: 50%;
+}
+.homepage .button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.homepage .button1 {
+    background-color: #1E386B;
+    color: white;
+    border-radius: 10px;
+    width: 150px;
+    padding: 15px;
+    text-align: center;
+    font-size: 22px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: 8px;
+}
+.homepage .button1 img {
+    width: 100px;
+    height: 130px;
+    margin-bottom: 10px;
+}
+.homepage .button2 {
+    background-color: #1E386B;
+    color: white;
+    border-radius: 10px;
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-left: 10px;
+}
+.homepage .button2 img {
+    margin-left: 20px;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 30px;
 }
