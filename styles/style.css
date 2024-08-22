@@ -366,3 +366,93 @@
   #workplace-img{
     margin-top: 30px;
   }
+
+
+
+  /* convo.html */
+  .convo {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #DCF2FD;
+}
+
+.convo .container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.convo .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.convo .text-to-speech-icon{
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+
+
+.convo .sound-icon{
+    width: 50px;
+    height: 50px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.convo .main-content {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.convo .image-container img {
+    width: 300px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.convo .text-title {
+    font-size: 25px;
+    font-weight: bold;
+    color: #333;
+}
+
+.convo .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.convo .option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #1E386B;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.convo .option img{
+    width: 80px;
+}
+.convo .option-text {
+    font-size: 24px;
+}
+
+.convo .speech-bubble {
+    width: 40px;
+    height: auto;
+}
