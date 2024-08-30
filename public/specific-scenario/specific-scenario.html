@@ -7,6 +7,105 @@
     <link rel="stylesheet" href="../styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
+<style>
+    /* Styling for the consequence popup */
+    .popup, .exit-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5); /* Overlay behind the popup */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .popup-content,.exit-popup-content {
+        background-color: #596BB3; 
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        width: 80%; 
+        max-width: 600px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 1001;
+        position: relative; 
+        margin: auto; 
+    }
+
+    .popup-content img, .exit-popup-content img{
+        width: 80%; 
+        height: 200px;
+        display: block;
+        margin: 0 auto 20px;
+    }
+
+    #consequence-text {
+        color: white; 
+        font-size: 24px; /* Font size for consequence text */
+        margin: 20px 0;
+    }
+
+    #try-again {
+        font-family: 'Open Sans', sans-serif;
+        background-color: #1E386B; 
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 15px 30px; /* Padding for a larger button */
+        font-size: 24px; /* Font size for the button */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 20px; /* Add space between the text and the button */
+    }
+
+    #try-again:hover {
+        background-color: #16306F; 
+    }
+
+    .exit-popup-content p {
+        color: white;
+        font-size: 24px;
+        margin: 50px 0 20px 0;
+    }
+
+    .exit-popup-content button {
+        font-family: 'Open Sans', sans-serif;
+        background-color: #1E386B;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        font-size: 24px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin: 10px;
+    }
+
+    .exit-popup-content button:hover {
+        background-color: #16306F;
+    }
+
+    .exit-popup-close {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        background-color: #1E386B;
+        border-radius: 50%; 
+        border: none;
+        font-size: 28px; 
+        width: 40px; 
+        height: 40px; 
+        color: white;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+</style>
 <body class = "specific-scenario">
     <div class="header">
         <img src="../../images/different-scenarios/base/text-to-speech.png" alt="Text to Speech Icon" class="text-to-speech-icon">
@@ -15,24 +114,207 @@
 
     <div class="main-content">
         <div class="image-container">
-            <img src="#" alt="Casual Hello">
+            <img id="phase-image" src="#" alt="image">
         </div>
-        <div class="text-title">Casual hello</div>
+        <div id="phase-title" class="text-title">Casual hello</div>
     </div>
 
     <div class="options">
-        <div class="option">
-            <div class="option-text">Hi, it's nice to see you</div>
-            <img src="" alt="Speech Bubble" class="speech-bubble">
+        <div class="option" data-consequence="">
+            <div id="option1-text" class="option-text">Option1</div>
+            <img id="option1-image" src="" alt="Speech Bubble" class="speech-bubble">
         </div>
-        <div class="option">
-            <div class="option-text">Hello, how have you been?</div>
-            <img src="" alt="Speech Bubble" class="speech-bubble">
+        <div class="option" data-consequence="">
+            <div id="option2-text" class="option-text">Option2</div>
+            <img id="option2-image" src="" alt="Speech Bubble" class="speech-bubble">
         </div>
     </div>
+
+    <div id="consequence-popup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <img id="consequence-image" src="" alt="Consequence Image">
+            <div id="consequence-text">Consequence Text</div>
+            <button id="try-again">Try Again</button>
+        </div>
+    </div>
+
+    <div id="exit-confirmation-popup" class="exit-popup" style="display: none;">
+        <div class="exit-popup-content">
+            <span class="exit-popup-close">&times;</span>
+            <img id="exit-image" src="../../images/different-scenarios/base/leave-icon.png" alt="Exit Image">
+            <p>Are you sure you want to exit the game?</p>
+            <button id="confirm-exit">Save Game and Exit</button>
+            <button id="cancel-exit">Cancel</button>
+        </div>
+    </div>
+
     <div class="exit-box">
         <img src="../../images/different-scenarios/base/exit.png" alt="Exit Icon" class="exit-icon">
         <div class="exit-text">Exit Game</div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const phaseImage = document.getElementById('phase-image');
+            const phaseTitle = document.getElementById('phase-title');
+            const consequencePopup = document.getElementById('consequence-popup');
+            const consequenceImage = document.getElementById('consequence-image');
+            const consequenceText = document.getElementById('consequence-text');
+            const options = document.querySelectorAll('.option');
+            const tryAgainButton = document.getElementById('try-again');
+            const exitBox = document.querySelector('.exit-box');
+            const exitConfirmationPopup = document.getElementById('exit-confirmation-popup');
+            const confirmExitButton = document.getElementById('confirm-exit');
+            const cancelExitButton = document.getElementById('cancel-exit');
+            const closeExitPopup = document.querySelector('.exit-popup-close');
+
+            // Get data from local storage
+            const selectedLevelData = JSON.parse(localStorage.getItem('selectedLevelData'));
+            const savedPhaseData = JSON.parse(localStorage.getItem('currentPhase')) || {};
+            const gameState = localStorage.getItem('gameState');
+
+            let badgeList = JSON.parse(localStorage.getItem('badgeList')) || [];
+            let currentPhase = 0;
+
+            // Initialize UI with phase data based on gameState
+            function initializePhase() {
+                if (gameState === "old" && savedPhaseData.level && savedPhaseData.level.phases) {
+                    // Use saved phase data if available
+                    currentPhase = savedPhaseData.phase || 0;
+                    updateUI(savedPhaseData.level.phases[currentPhase]);
+                } else if (selectedLevelData && selectedLevelData.phases.length > 0) {
+                    // Start from phase 0 if the state is "new"
+                    updateUI(selectedLevelData.phases[currentPhase]);
+                }
+            }
+
+            // Function to check if a badge is already in the list
+            function isBadgeInList(badgeList, badge) {
+                return badgeList.some(item => item[0] === badge);
+            }
+
+            // Function to update the UI based on the current phase
+            function updateUI(phase) {
+                if (phase && phase.options) {
+                    // Update the phase image and title
+                    phaseImage.src = phase.phaseImage || '#';
+                    phaseTitle.textContent = phase.phaseTitle || 'Phase Title';
+
+                    // Update options
+                    options.forEach((option, index) => {
+                        const optionData = phase.options[index];
+                        if (optionData) {
+                            option.setAttribute('data-consequence', JSON.stringify(optionData.consequence) || '');
+                            document.getElementById(`option${index + 1}-text`).textContent = optionData.optionText || 'Option';
+                            document.getElementById(`option${index + 1}-image`).src = optionData.image || '';
+                        }
+                    });
+                    // Ensure margins are reset when updating the UI
+                    options.forEach(option => {
+                        option.style.marginBottom = '';
+                    });
+                }
+            }
+
+            // Set up option click handlers
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    const consequenceData = option.getAttribute('data-consequence');
+                    const consequence = consequenceData ? JSON.parse(consequenceData) : null;
+
+                    if (consequence) {
+                        // Show consequence popup
+                        consequencePopup.style.display = 'flex';
+                        consequenceImage.src = consequence.consequence_image || '';
+                        consequenceText.textContent = consequence.consequence_text || '';
+                    } else {
+                        // Go to next phase
+                        currentPhase++;
+                        if (currentPhase < selectedLevelData.phases.length) {
+                            updateUI(selectedLevelData.phases[currentPhase]);
+                        } else {
+                            // Handle end of game
+                            if (!isBadgeInList(badgeList, selectedLevelData.badge)) {
+                                badgeList.push([selectedLevelData.badge, selectedLevelData.badge_title]);
+                                localStorage.setItem('badgeList', JSON.stringify(badgeList));
+                            }
+
+                            phaseTitle.textContent = "Game Over";
+                            phaseImage.src = selectedLevelData.badge;
+                            exitBox.style.display = 'none';
+                            options.forEach((option, index) => {
+                                option.style.marginBottom = '30px'; // Increase gap
+                                if (index === 0) {
+                                    // Set the first option to "Main Menu"
+                                    document.getElementById('option1-text').textContent = 'Main Menu';
+                                    document.getElementById('option1-image').src = '../../images/different-scenarios/base/home-icon.png';
+                                    option.addEventListener('click', () => {
+                                        window.location.href = '../homepage-pages/homepage.html'; // Redirect to main menu
+                                        localStorage.removeItem("selectedLevelData");
+                                        if (gameState === "old") {
+                                            localStorage.removeItem("currentPhase");
+                                        }
+                                    });
+                                } else if (index === 1) {
+                                    // Set the second option to "Try Again"
+                                    document.getElementById('option2-text').textContent = 'Try Again';
+                                    document.getElementById('option2-image').src = '../../images/different-scenarios/base/try-again-icon.jpg';
+                                    option.addEventListener('click', () => {
+                                        document.getElementById('option1-text').textContent = "";
+                                        document.getElementById('option2-text').textContent = "";
+                                        exitBox.style.display = 'flex';
+                                        consequencePopup.style.display = 'none';
+                                        window.location.href = ""
+                                        currentPhase = 0; // Reset to the first phase
+                                        if (gameState === "old") {
+                                            // Retrieve the full level data again and reset
+                                            updateUI(savedPhaseData.level.phases[currentPhase]);
+                                            localStorage.removeItem("currentPhase");
+                                        } else {
+                                            updateUI(selectedLevelData.phases[currentPhase]);
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Set up consequence popup try again button
+            tryAgainButton.addEventListener('click', () => {
+                consequencePopup.style.display = 'none';
+            });
+
+            // Set up "Exit Game" button to show the confirmation popup
+            exitBox.addEventListener('click', () => {
+                exitConfirmationPopup.style.display = 'flex';
+            });
+
+            // Close the exit popup when clicking the close button or cancel button
+            closeExitPopup.addEventListener('click', () => {
+                exitConfirmationPopup.style.display = 'none';
+            });
+
+            cancelExitButton.addEventListener('click', () => {
+                exitConfirmationPopup.style.display = 'none';
+            });
+
+            // Confirm exit: save current phase to local storage and redirect
+            confirmExitButton.addEventListener('click', () => {
+                // Save the current phase to local storage
+                localStorage.setItem('currentPhase', JSON.stringify({
+                    level: selectedLevelData,
+                    phase: currentPhase
+                }));
+                // Close the popup and redirect to the main page
+                exitConfirmationPopup.style.display = 'none';
+                window.location.href = '../homepage-pages/homepage.html'; // Redirect to the main page
+            });
+
+            // Initialize the UI with the appropriate phase data
+            initializePhase();
+        });
+
+    </script>
 </body>
 </html>
