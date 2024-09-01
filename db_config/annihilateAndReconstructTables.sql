@@ -1,0 +1,3 @@
+USE master;
+DROP DATABASE Scooby;
+CREATE DATABASE Scooby;
