@@ -308,7 +308,7 @@
     height: 100vh;
 }
 
-.scenario .back-button, .loading .back-button{
+.scenario .back-button, .loading .back-button, .badges .back-button{
     display: flex;
     align-items: center;
     padding: 30px;
@@ -317,9 +317,10 @@
     font-size: 27px;
     text-decoration: none;
     color: #000000;
+    font-family: "Open Sans", sans-serif;
 }
 
-.scenario .back-button img, .loading .back-button img{
+.scenario .back-button img, .loading .back-button img, .badges .back-button img{
     width: 50px;
     height: 50px;
     margin-right: 5px;
@@ -532,4 +533,96 @@
 
 .specific-scenario .exit-box .exit-text {
     font-size: 26px; /* Increased size */
+}
+
+
+/*badges.html*/
+.badges {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    overflow-y: auto;
+}
+.badges h2{
+    font-size: 40px;
+    margin-top: 50px;
+}
+.badges h3{
+    margin-top: -20px;
+    font-size: 32px;
+}
+
+.badges .profile-container {
+    background-color: #6f87cf;
+    padding: 20px;
+    height:1100px;
+    width: 390px;
+    text-align: center;
+    color: white;
+}
+
+.badges .avatar {
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+    margin-top: 40px;
+    margin-left: 83px;
+}
+
+.badges #badges-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.badges .badge {
+    background-color: white;
+    padding: 10px;
+    margin: 5px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 30px;
+    padding-top: 30px;
+}
+
+.badges .badge p{
+    font-size: 30px;
+}
+
+.badges .badge img {
+    width: 130px;
+    height: 100px;
+}
+#body-badge{
+    font-size: 23px;
+    margin-bottom: -30px;
+}
+
+#prev-button{
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 60%;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: none;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#next-button{
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 60%;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 20px;
+    border: none;
 }
