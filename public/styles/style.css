@@ -167,7 +167,6 @@
 }
 
 /* homepage.html */
-
 .homepage {
     font-family: 'Open Sans', sans-serif;
     background-color: #FFFFFF; /* White background */
@@ -177,22 +176,22 @@
 
 
 #profile-icon {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-left: 330px;
     margin-bottom: 10px; /* Space below the profile section */
     padding: 20px;
-    z-index: 100;
 }
 
 #profile-icon img {
+    position: relative;
     width: 60px; /* Adjust icon size */
     height: 60px; /* Adjust icon size */
     border-radius: 50%; /* Make the icon circular */
     border: 2px solid #000000; /* Circular border around the icon */
     margin-bottom: 5px; /* Space between the icon and text */
+    z-index: 100;
 }
 
 #profile-icon p {
@@ -226,7 +225,6 @@
     right: 20px; /* Align at the left */
     width: 100%; /* Adjust width with padding consideration */
     height: auto; /* Maintain aspect ratio */
-    z-index:2;
 }
 
 .homepage .image img {
