@@ -15,7 +15,9 @@ INSERT INTO Client (ClientId, PhoneNumber) VALUES
 
 -- Insert data into Session table
 INSERT INTO Session (SessionId, StaffId, SessionDate, SessionTime, SessionLocation, SessionSlotsMax) VALUES 
-('SES00001', 'ACC00001', '2024-09-01', '10:00 AM', '123 Main St.', 10);
+('SES00001', 'ACC00001', '2024-09-01', '10:00 AM', '123 Main St.', 10),
+('SES00002', 'ACC00001', '2024-09-02', '10:00 AM', '123 Main St.', 2),
+('SES00003', 'ACC00001', '2024-09-03', '10:00 AM', '123 Main St.', 3);
 
 -- Insert data into Booking table
 INSERT INTO Booking (BookingId, SessionId, ClientId, BookingStatus) VALUES 

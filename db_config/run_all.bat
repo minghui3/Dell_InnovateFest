@@ -10,17 +10,17 @@ for /f "usebackq tokens=*" %%a in (`powershell -Command "Write-Output \"$env:COM
 
 echo Server Name: %SERVER_NAME%
 
-echo Running annihilateAndReconstructTables.sql
-sqlcmd -S %SERVER_NAME% -E -i "annihilateAndReconstructTables.sql"
+echo Running annihilateAndReconstructDB.sql
+sqlcmd -S %SERVER_NAME% -E -i "db_config/annihilateAndReconstructDB.sql"
 
 echo Running createTables.sql
-sqlcmd -S %SERVER_NAME% -E -i "createTables.sql"
+sqlcmd -S %SERVER_NAME% -E -i "db_config/createTables.sql"
 
 echo Running addData.sql
-sqlcmd -S %SERVER_NAME% -E -i "addData.sql"
+sqlcmd -S %SERVER_NAME% -E -i "db_config/addData.sql"
 
 echo Running createSQLUser.sql
-sqlcmd -S %SERVER_NAME% -E -i "createSQLUser.sql"
+sqlcmd -S %SERVER_NAME% -E -i "db_config/createSQLUser.sql"
 
 echo All scripts executed successfully.
 

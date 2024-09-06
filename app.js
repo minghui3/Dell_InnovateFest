@@ -1,9 +1,11 @@
 const express = require("express");
 const sql = require("mssql"); // Assuming you've installed mssql
+const bodyParser = require('body-parser');
 const dbConfig = require("./dbConfig");
 
 // controllers
 const bookingController = require("./controllers/bookingController");
+const sessionController = require("./controllers/sessionController")
 
 // middleware
 // const validateBooking = require("./middleware/validateBooking")
@@ -11,10 +13,20 @@ const bookingController = require("./controllers/bookingController");
 const app = express();
 const staticMiddleware = express.static("public");
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(staticMiddleware);
 
 // routes
+
+// booking routes
+app.get("/api/bookings/:clientId", bookingController.viewBookingsByClientId)
+app.put("/api/booking/cancel/:bookingId", bookingController.cancelBookingByBookingId)
 app.post("/api/booking", bookingController.createBooking)
+
+// session routes
+app.post("/api/session", sessionController.createSession)
+
 
 const port = process.env.PORT || 3000; // Use environment variable or default port
 
