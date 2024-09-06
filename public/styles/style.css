@@ -112,7 +112,7 @@
     height: 140px;
 }
 
-.header{
+.index-page .header{
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
     color: #000000;
@@ -694,7 +694,7 @@
 }
 
 
-.button-container {
+.badges .button-container {
     display: flex; 
     justify-content: center; 
     align-items: center; 
@@ -795,10 +795,13 @@
 }
 
 .message .message-text {
+    font-size: 1.2rem;
+    font-weight: bold;
     padding-bottom: 15px;
 }
 
 .message .timestamp {
+    font-weight: bold;
     font-size: 0.8rem; /* Adjust the font size as needed */
     position: absolute;
     bottom: 5px;
