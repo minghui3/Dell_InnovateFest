@@ -724,6 +724,7 @@
 
 
 /* chatbot page styling */
+
 .chatbot-useraction {
     margin-bottom: 0rem !important;
 }
@@ -734,8 +735,9 @@
 }
 
 .chatbot {
-    max-width: 400px;
-    margin: 20px auto;
+    max-width: 430px;
+    height: 932px;
+
     border: 1px solid #ccc;
     border-radius: 5px;
     overflow: hidden;
@@ -745,7 +747,7 @@
     background-color: #193295fb;
     color: #ffffff;
     font-weight: bolder;
-    font-size: larger;
+    font-size: x-large;
 }
 
 .chatbot-exit:hover {
@@ -760,19 +762,19 @@
 }
 
 .chatbot-useraction {
-    height: 50px;
+    height: 60px;
 }
 
 .chatbot-useraction-send {
     background-color: #193295fb;
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
 }
 
 .chatbot-useraction-mic {
     background-color: #4A90E2;
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     opacity: 0.7;
 }
 
@@ -869,4 +871,8 @@
 .button img {
     width: 50px; /* Adjust the image size as needed */
     height: 50px;
+}
+
+.icon-group {
+    font-size: 24px; /* Adjust this value to your desired size */
 }

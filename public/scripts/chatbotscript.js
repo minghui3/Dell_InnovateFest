@@ -1,3 +1,12 @@
+function returnHome() {
+    const exitButton = document.getElementById("exitButton");
+    if (exitButton) {
+        exitButton.addEventListener('click', function() {
+            window.location.href = '../homepage-pages/homepage.html';
+        });
+    }
+}
+
 function appendMessage(text, type, isUser = false, timestamp = null) {
     const messageContainer = document.createElement('div');
     messageContainer.className = 'message-container';
@@ -214,6 +223,8 @@ document.addEventListener('DOMContentLoaded', function() {
             sendMessage();
         }
     });
+
+    returnHome();
 
     // Initialize the chatbot with an initial message
     initializeChatbot();
