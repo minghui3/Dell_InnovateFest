@@ -6,6 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+     <!-- Lottie Link-->
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
 </head>
 <style>
     /* Styling for the consequence popup */
@@ -83,24 +85,24 @@
 </style>
 <body class = "loading">
     <a href = "homepage.html" class="back-button">
-        <img src="../../images/scenario-html/back-icon.png" alt="Back">
+        <img src="../images/scenario-html/back-icon.png" alt="Back">
         <span>Back</span>
     </a>
     <div class="content">
         <h2>Choose an<br>Option to Begin</h2>
         <a href="#" id = "start-new-game" class="option">
-            <img id = "newgame-img" src="../../images/loading-html/new-game-icon.png" alt="Start a new game">
+            <img id = "newgame-img" src="../images/loading-html/new-game-icon.png" alt="Start a new game">
             <div class="option-text">Start a new game</div>
         </a>
         <a href="#" id = "loadgame" class="option">
-            <img id = "loadgame-img" src="../../images/loading-html/loading-game.png" alt="Load recent game">
+            <img id = "loadgame-img" src="../images/loading-html/loading-game.png" alt="Load recent game">
             <div class="option-text">Load recently played game</div>
         </a>
     </div>
     <div id="no-save-popup" class="popup" style="display: none;">
         <div class="popup-content">
             <span id="close-popup-button">&times;</span>
-            <img id="not-found-image" src="../../images/different-scenarios/base/not-found-icon.png" alt="Not Found Image">
+            <img id="not-found-image" src="../images/different-scenarios/base/not-found-icon.png" alt="Not Found Image">
             <p>No saved game found!</p>
             <button id="return-button">Return</button>
         </div>

@@ -9,7 +9,7 @@
 </head>
 <body class = "scenario">
     <a href = "../homepage-pages/scenario.html" class="back-button">
-        <img src="../../images/scenario-html/back-icon.png" alt="Back">
+        <img src="../images/scenario-html/back-icon.png" alt="Back">
         <span>Back</span>
     </a>
     <div class="content">
@@ -19,24 +19,30 @@
                 <div class="bar1"></div>
                 <span>Easy</span>
               </div>
-            <img src="../../images/difficulty-level/easy-diff.png" alt="Close Friend">
+            <img src="../images/difficulty-level/easy-diff.png" alt="Close Friend">
             <div class="option-text">Close Friend</div>
         </a>
-        <a href="#" class="option scenario-option" data-level = "Start-Conversation-MINDS-Staff">
+        <a href="#" class="option scenario-option locked" data-level = "Start-Conversation-MINDS-Staff">
             <div class="difficulty-bar medium">
                 <div class="bar2"></div>
                 <span>Medium</span>
               </div>
-            <img id = "minds-img" src="../../images/difficulty-level/med-diff.png" alt="MINDS Staff">
+            <img id = "minds-img" src="../images/difficulty-level/med-diff.png" alt="MINDS Staff">
             <div class="option-text">MINDS Staff</div>
+            <div class="overlay">
+                <img class="lock-icon" src="../images/different-scenarios/base/lock.png" alt="Locked">
+            </div>
         </a>
-        <a href="#" class="option scenario-option" data-level = "Start-Conversation-New-Person">
+        <a href="#" class="option scenario-option locked" data-level = "Start-Conversation-New-Person">
             <div class="difficulty-bar medium">
                 <div class="bar3"></div>
                 <span>Hard</span>
               </div>
-            <img src="../../images/difficulty-level/hard-diff.png" alt="New Contacts">
+            <img src="../images/difficulty-level/hard-diff.png" alt="New Contacts">
             <div class="option-text">New Person</div>
+            <div class="overlay">
+                <img class="lock-icon" src="../images/different-scenarios/base/lock.png" alt="Locked">
+            </div>
         </a>
     </div>
     <script src = "../scripts/specific-scenario-load.js"></script>

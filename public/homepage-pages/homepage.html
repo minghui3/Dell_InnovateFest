@@ -8,31 +8,40 @@
     <title>Document</title>
 </head>
 <body class = "homepage">
-    <div id = "profile-icon" >
-        <img src ="../../images/homepage-html/profile-png-icon-2.jpg" alt = "Profile icon">
+    <div id = "profile-icon" onclick="redirectToBadges()">
+        <img src ="../images/homepage-html/profile-png-icon-2.jpg" alt = "Profile icon">
         <p>Profile</p>
     </div>
     <div class="container">
         <div class="image">
-            <img src="../../images/homepage-html/person.png" alt="Person Image">
+            <img src="../images/homepage-html/person.png" alt="Person Image">
         </div>
-        <div class="heading">Start<br>Connecting<br>Today</div>
+        <h2 class="heading">Start<br>Connecting<br>Today</h2>
         <div class="button-container">
-            <a href = "./loading.html" class="button1">
-                <img src="../../images/homepage-html/guided-scenarios.png" alt="Guide Icon">
+            <a href = "./loading.html" class=" button button1">
+                <img src="../images/homepage-html/guided-scenarios.png" alt="Guide Icon">
                 <div>Guided Scenarios</div>
             </a>
-            <a href = "#" class="button2">
-                <img src="../../images/homepage-html/chatbot.png" alt="Chatbot Icon">
+            <a href = "../chatbot-pages/chatbot.html" class=" button button2">
+                <img src="../images/homepage-html/chatbot.png" alt="Chatbot Icon">
                 <div>Chatbot</div>
             </a>
         </div>
         <div class="button-container">
-            <a href = "#" class="button3">
-                <img src="../../images/homepage-html/booking.png" alt="Book A Session Icon">
+            <a href = "#" class="button button3">
+                <img src="../images/homepage-html/booking.png" alt="Book A Session Icon">
                 <div>Book A Session</div>
+            </a>
+            <a href = "../tutorials-pages/tutorials-selection.html" class="button button4">
+                <img src="../images/homepage-html/tutorials.png" alt="Tutorials Icon">
+                <div>Tutorials</div>
             </a>
         </div>
     </div>
+    <script>
+        function redirectToBadges() {
+            window.location.href = './badges.html';
+        }
+    </script>
 </body>
 </html>
