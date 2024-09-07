@@ -61,7 +61,7 @@
         margin: 20px 0;
     }
 
-    #try-again, #next, #start-button {
+    #try-again, #next, #start-button,#info-next-button {
         font-family: 'Open Sans', sans-serif;
         background: linear-gradient(145deg, #1E386B, #2A4C8A); 
         color: white;
@@ -79,7 +79,7 @@
     #start-button{
         margin-top: 5px;
     }
-    #try-again:hover, #next:hover,  #start-button:hover {
+    #try-again:hover, #next:hover,  #start-button:hover,#info-next-button {
         background: linear-gradient(145deg, #16306F, #1E386B);
         box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35),
                     inset 0 -4px 6px rgba(0, 0, 0, 0.15), 
@@ -312,32 +312,37 @@
     <!--Game Info Pop-Up-->
     <div id="gameinfo-popup" class="popup">
         <div class="popup-content">
-            <h1> Game Features </h1>
-            <h2> Game Icons </h2>
-            <div class="info-container">
-                <div class="info-text">Read Aloud</div>
-                <div class="info-image">
-                    <img src="../images/different-scenarios/base/text-to-speech.png" alt="text-to-speech Image">
+            <div id="initial-content">
+                <h1> Game Features </h1>
+                <h2> Game Icons </h2>
+                <div class="info-container">
+                    <div class="info-text">Read Aloud</div>
+                    <div class="info-image">
+                        <img src="../images/different-scenarios/base/text-to-speech.png" alt="text-to-speech Image">
+                    </div>
                 </div>
-            </div>
-            <div class="info-container">
-                <div class="info-text">Play Music</div>
-                <div class="info-image">
-                    <img src="../images/different-scenarios/base/sound-icon.png" alt="music Image">
+                <div class="info-container">
+                    <div class="info-text">Play Music</div>
+                    <div class="info-image">
+                        <img src="../images/different-scenarios/base/sound-icon.png" alt="music Image">
+                    </div>
                 </div>
-            </div>
-            <div class="info-container">
-                <div class="info-text">Mute Music</div>
-                <div class="info-image">
-                    <img src="../images/different-scenarios/base/mute-icon.png" alt="Mute Image">
+                <div class="info-container">
+                    <div class="info-text">Mute Music</div>
+                    <div class="info-image">
+                        <img src="../images/different-scenarios/base/mute-icon.png" alt="Mute Image">
+                    </div>
                 </div>
-            </div>
-            <div class="info-container">
-                <div class="info-text">Exit the Game</div>
-                <div class="info-image">
-                    <img src="../images/different-scenarios/base/exit.png" alt="Exit Image">
+                <div class="info-container">
+                    <div class="info-text">Exit the Game</div>
+                    <div class="info-image">
+                        <img src="../images/different-scenarios/base/exit.png" alt="Exit Image">
+                    </div>
                 </div>
+                <button id="info-next-button">Next</button>
             </div>
+           <!-- Content to Show on Next Button Click -->
+        <div id="scroll-content" style="display: none;">
             <h2> Game Scrolls </h2>
             <div class="info-container">
                 <div class="info-text">Tap on Icon </div>
@@ -352,6 +357,7 @@
                 </div>
             </div>
             <button id="start-button">Start</button>
+        </div>
         </div>
     </div>
     <!--Header-->
@@ -481,6 +487,11 @@
             let badgeList = JSON.parse(localStorage.getItem('badgeList')) || [];
             let currentPhase = 0;
             let progress; 
+
+            document.getElementById('info-next-button').addEventListener('click', function() {
+                document.getElementById('initial-content').style.display = 'none';
+                document.getElementById('scroll-content').style.display = 'block';
+            });
 
             // Function to play Lottie animation once
             function playLottieAnimation() {
