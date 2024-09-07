@@ -895,7 +895,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const levelMapping = {
           'Start-Conversation-MINDS-Staff': 'Start a Conversation Level 1',
           'Start-Conversation-New-Person': 'Start a Conversation Level 2',
-          'Handle-Feedback-Minds-Staff': 'Handle Feedback Level 1',
+          'Handle-Feedback-MINDS-Staff': 'Handle Feedback Level 1',
           'Handle-Feedback-Workplace': 'Handle Feedback Level 2'
       };
       return levelMapping[levelName];
