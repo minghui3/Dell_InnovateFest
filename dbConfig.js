@@ -1,11 +1,11 @@
-/*module.exports = {
-    user: "username", // Replace with your SQL Server login username
-    password: "password", // Replace with your SQL Server login password
-    server: "localhost",
-    database: "bed_db",
-    trustServerCertificate: true,
-    options: {
-      port: 1433, // Default SQL Server port
-      connectionTimeout: 60000, // Connection timeout in milliseconds
-    },
-};*/
+
+// dbConfig.js
+module.exports = {
+  host: 'localhost', // Replace with your MySQL host
+  user: 'mysql', // Replace with your MySQL username
+  password: 'mysql_p@ssw0rd', // Replace with your MySQL password
+  database: 'sampledb',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+};

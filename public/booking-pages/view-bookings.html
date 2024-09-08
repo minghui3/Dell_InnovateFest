@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Bookings Page</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        .booking-card {
+            background-color: #1E386B;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 400px;
+            text-align: left;
+            font-size: 1.2em;
+        }
+        .booking-card h2 {
+            color: white; /* Dark blue heading */
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .info {
+            margin: 10px 0;
+        }
+        .info label {
+            font-weight: bold;
+        }
+        #your-booking{
+            padding-left: 30px;
+        }
+    </style>
+</head>
+<body class = "badges">
+    <a href = "booking.html" class="back-button">
+        <img src="../images/scenario-html/back-icon.png" alt="Back">
+        <span>Back</span>
+    </a>
+    <h1 id = "your-booking">Your Bookings</h1>
+    <div id="bookings-list">
+        
+    </div>
+    
+</body>
+<script src="../scripts/view-bookings.js"></script>
+</html>
