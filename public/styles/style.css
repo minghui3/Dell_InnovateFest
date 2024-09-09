@@ -135,7 +135,7 @@
     margin-top:15px;
 }
 
-.buttons a{
+.buttons a {
     border-radius: 29px;
     background-color: #1E386B;
     padding: 13px 90px;
@@ -147,10 +147,25 @@
     margin-left: 80px;
     margin-right: 50px;
     border-radius: 25px;
-    display: inline-block; 
+    display: inline-block;
     color: #FFFFFF;
     text-decoration: none;
     font-family: 'Open Sans', sans-serif;
+    animation: ripple 1.5s infinite; /* Faster and more frequent animation */
+    transition: transform 0.3s ease;
+}
+
+/* Ripple effect animation */
+@keyframes ripple {
+    0% {
+        box-shadow: 0 0 10px rgba(30, 56, 107, 0.5), 0 0 20px rgba(30, 56, 107, 0.4), 0 0 40px rgba(30, 56, 107, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(30, 56, 107, 1), 0 0 60px rgba(30, 56, 107, 0.8), 0 0 90px rgba(30, 56, 107, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(30, 56, 107, 0.5), 0 0 20px rgba(30, 56, 107, 0.4), 0 0 40px rgba(30, 56, 107, 0.3);
+    }
 }
 /* homepage.html */
 .homepage {
