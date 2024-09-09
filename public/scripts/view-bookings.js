@@ -45,9 +45,9 @@ document.addEventListener('DOMContentLoaded', async function () {
             var labelElement4text = document.createElement("label");
 
             if (booking.BookingStatus === "Cancelled" || booking.BookingStatus === "Absent") {
-                labelElement4text.style.color = "red";
+                labelElement4text.style.color = "#F41919";
             } else {
-                labelElement4text.style.color = "green";
+                labelElement4text.style.color = "#51BC63";
             }
 
             labelElement4text.appendChild(document.createTextNode(booking.BookingStatus));
