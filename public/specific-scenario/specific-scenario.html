@@ -264,16 +264,18 @@
         4px 4px 0 #2A4C8A, 
         6px 6px 4px rgba(0, 0, 0, 0.5); 
     }
-
+    .background-box{
+        background-color: #1E386B; 
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
+        border-radius: 20px;
+    }
     .info-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #1E386B; 
         border-radius: 12px; 
         padding: 5px 10px;
         margin-bottom: 20px; 
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); 
         transition: background-color 0.3s ease, box-shadow 0.3s ease; 
     }
 
@@ -315,28 +317,30 @@
             <div id="initial-content">
                 <h1> Game Features </h1>
                 <h2> Game Icons </h2>
-                <div class="info-container">
-                    <div class="info-text">Read Aloud</div>
-                    <div class="info-image">
-                        <img src="../images/different-scenarios/base/text-to-speech.png" alt="text-to-speech Image">
+                <div class = "background-box">
+                    <div class="info-container">
+                        <div class="info-text">Read Aloud</div>
+                        <div class="info-image">
+                            <img src="../images/different-scenarios/base/text-to-speech.png" alt="text-to-speech Image">
+                        </div>
                     </div>
-                </div>
-                <div class="info-container">
-                    <div class="info-text">Play Music</div>
-                    <div class="info-image">
-                        <img src="../images/different-scenarios/base/sound-icon.png" alt="music Image">
+                    <div class="info-container">
+                        <div class="info-text">Play Music</div>
+                        <div class="info-image">
+                            <img src="../images/different-scenarios/base/sound-icon.png" alt="music Image">
+                        </div>
                     </div>
-                </div>
-                <div class="info-container">
-                    <div class="info-text">Mute Music</div>
-                    <div class="info-image">
-                        <img src="../images/different-scenarios/base/mute-icon.png" alt="Mute Image">
+                    <div class="info-container">
+                        <div class="info-text">Mute Music</div>
+                        <div class="info-image">
+                            <img src="../images/different-scenarios/base/mute-icon.png" alt="Mute Image">
+                        </div>
                     </div>
-                </div>
-                <div class="info-container">
-                    <div class="info-text">Exit the Game</div>
-                    <div class="info-image">
-                        <img src="../images/different-scenarios/base/exit.png" alt="Exit Image">
+                    <div class="info-container">
+                        <div class="info-text">Exit the Game</div>
+                        <div class="info-image">
+                            <img src="../images/different-scenarios/base/exit.png" alt="Exit Image">
+                        </div>
                     </div>
                 </div>
                 <button id="info-next-button">Next</button>
@@ -344,16 +348,18 @@
            <!-- Content to Show on Next Button Click -->
         <div id="scroll-content" style="display: none;">
             <h2> Game Scrolls </h2>
-            <div class="info-container">
-                <div class="info-text">Tap on Icon </div>
-                <div class="info-animation">
-                    <dotlottie-player src="https://lottie.host/ea2b4bf9-279f-473c-b2d7-7a22a7f00e75/73aFisdmWF.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+            <div class = "background-box">
+                <div class="info-container">
+                    <div class="info-text">Tap on Icon </div>
+                    <div class="info-animation">
+                        <dotlottie-player src="https://lottie.host/ea2b4bf9-279f-473c-b2d7-7a22a7f00e75/73aFisdmWF.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+                    </div>
                 </div>
-            </div>
-            <div class="info-container">
-                <div class="info-text">Scroll down </div>
-                <div class="info-animation">
-                    <dotlottie-player src="https://lottie.host/34147ce5-b878-4f05-b9ae-a4cd22deab4e/0HLUWNdBkT.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+                <div class="info-container">
+                    <div class="info-text">Scroll down </div>
+                    <div class="info-animation">
+                        <dotlottie-player src="https://lottie.host/34147ce5-b878-4f05-b9ae-a4cd22deab4e/0HLUWNdBkT.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
+                    </div>
                 </div>
             </div>
             <button id="start-button">Start</button>
